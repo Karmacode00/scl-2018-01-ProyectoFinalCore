@@ -1,4 +1,3 @@
-
 firebase.auth().useDeviceLanguage();
 
 window.onload = function() {
@@ -76,8 +75,14 @@ function resetRecaptcha() {
  */
 function updateSignInButtonUI() {
   document.getElementById('sign-in-button').disabled = !isPhoneNumberValid() || !!window.signingIn;
+
+  
+  // Función para colocar  el cargador en la pagina y pueda mostrar el contenido de la pagina cuando se completa la carga
+let myVar;
+
 }
 var myVar;
+
 
 
 function myFunction() {
@@ -86,5 +91,11 @@ function myFunction() {
 function showPage() {
   document.getElementById("loader").style.display="none";
   document.getElementById("myDiv").style.display="block";
+}
+// fin de la función
+
+
+
 
 }
+
