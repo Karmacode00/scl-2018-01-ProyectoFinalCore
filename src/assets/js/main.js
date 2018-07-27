@@ -1,3 +1,4 @@
+
 firebase.auth().useDeviceLanguage();
 
 window.onload = function() {
@@ -75,4 +76,14 @@ function resetRecaptcha() {
  */
 function updateSignInButtonUI() {
   document.getElementById('sign-in-button').disabled = !isPhoneNumberValid() || !!window.signingIn;
+
+var myVar;
+
+function myFunction() {
+  myVar = setTimeout(showPage, 3000);
+}
+function showPage() {
+  document.getElementById("loader").style.display="none";
+  document.getElementById("myDiv").style.display="block";
+
 }
