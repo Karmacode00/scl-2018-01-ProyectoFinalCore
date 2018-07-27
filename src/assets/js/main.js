@@ -75,9 +75,15 @@ function resetRecaptcha() {
  */
 function updateSignInButtonUI() {
   document.getElementById('sign-in-button').disabled = !isPhoneNumberValid() || !!window.signingIn;
+
   
   // Función para colocar  el cargador en la pagina y pueda mostrar el contenido de la pagina cuando se completa la carga
 let myVar;
+
+}
+var myVar;
+
+
 
 function myFunction() {
   myVar = setTimeout(showPage, 3000);
@@ -90,4 +96,6 @@ function showPage() {
 
 
 
+
+}
 
