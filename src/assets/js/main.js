@@ -76,8 +76,9 @@ function resetRecaptcha() {
  */
 function updateSignInButtonUI() {
   document.getElementById('sign-in-button').disabled = !isPhoneNumberValid() || !!window.signingIn;
-
+}
 var myVar;
+
 
 function myFunction() {
   myVar = setTimeout(showPage, 3000);
