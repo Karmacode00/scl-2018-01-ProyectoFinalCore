@@ -17,8 +17,9 @@ Para tomar las decisiones sobre el diseño de interfaz de usuario, nos basamos e
 
 ### Prototipo de alta fidelidad
 
-La interfaz de usuario fue diseñada con el programa Figma, se eligieron los colores en escala de grises ya que son los colores que caracterizan al logo y la página web del recinto
-(link del prototipo clickeable https://www.figma.com/proto/XBwXJVdp4U5aMN421VbtOATb/Untitled?node-id=9%3A0&scaling=scale-down).
+La interfaz de usuario fue diseñada con el programa Figma, se eligieron los colores en escala de grises ya que son los colores que caracterizan al logo y la página web del recinto (http://www.ifblanco.cl/).
+
+El link del prototipo clickeable es https://www.figma.com/proto/XBwXJVdp4U5aMN421VbtOATb/Untitled?node-id=9%3A0&scaling=scale-down, y consta de las siguientes secciones:
 
 #### Página de inicio
 Presenta una imágen de fondo del establecimiento y un botón en el cual se van a ingresar las visitas.
