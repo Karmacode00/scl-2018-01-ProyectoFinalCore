@@ -5,8 +5,10 @@ function myFunction() {
   myVar = setTimeout(showPage, 3000);
 }
 function showPage() {
+  document.getElementById("title").style.display="none";
   document.getElementById("loader").style.display="none";
   document.getElementById("myDiv").style.display="block";
+  {window.location="prueba.html"}
 }
 // fin de la función
 
