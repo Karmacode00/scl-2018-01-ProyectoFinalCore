@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="col-md-4 offset-md-4">
+    <button id="startbutton"> Tomar foto
+      <i class="fas fa-camera"></i>
+    </button>
+  </div>
+  <div class="col-md-4 offset-md-4">
+    <video id="video"></video>
+  </div>
+  <div class="col-md-4 offset-md-4">
+    <canvas id="canvas"></canvas>
+  </div>
+  <script>
+    document.getElementById('startbutton').addEventListener('click', () => {
+      document.getElementById('video').style.display = 'none';
+      document.getElementById('canvas').style.display = 'block';
+    });
+
+//funcion tomar foto
+    (function () {
+
+      var streaming = false,
+        video = document.querySelector('#video'),
+        canvas = document.querySelector('#canvas'),
+        photo = document.querySelector('#photo'),
+        startbutton = document.querySelector('#startbutton'),
+        width = 320,
+        height = 0;
+
+      navigator.getMedia = (navigator.getUserMedia ||
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia ||
+        navigator.msGetUserMedia);
+
+      navigator.getMedia(
+        {
+          video: true,
+          audio: false
+        },
+        function (stream) {
+          if (navigator.mozGetUserMedia) {
+            video.mozSrcObject = stream;
+          } else {
+            var vendorURL = window.URL || window.webkitURL;
+            video.src = vendorURL.createObjectURL(stream);
+          }
+          video.play();
+        },
+        function (err) {
+          console.log("An error occured! " + err);
+        }
+      );
+
+      video.addEventListener('canplay', function (ev) {
+        if (!streaming) {
+          height = video.videoHeight / (video.videoWidth / width);
+          video.setAttribute('width', width);
+          video.setAttribute('height', height);
+          canvas.setAttribute('width', width);
+          canvas.setAttribute('height', height);
+          streaming = true;
+        }
+      }, false);
+
+      function takepicture() {
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext('2d').drawImage(video, 0, 0, width, height);
+        var data = canvas.toDataURL('image/png');
+        photo.setAttribute('src', data);
+      }
+
+      startbutton.addEventListener('click', function (ev) {
+        takepicture();
+        ev.preventDefault();
+      }, false);
+
+    })();
+  </script>
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAFI01zsbOiVi-1CETqqUvUuvM9UXTXvaM",
+      authDomain: "appregister-d9acc.firebaseapp.com",
+      databaseURL: "https://appregister-d9acc.firebaseio.com",
+      projectId: "appregister-d9acc",
+      storageBucket: "",
+      messagingSenderId: "141311202357"
+    };
+    firebase.initializeApp(config);
+  </script>
+</body>
+
+</html>
