@@ -190,6 +190,8 @@ function guardar(){
     document.getElementById('nombre').value = '';
     const apellido = document.getElementById('apellido').value;
     document.getElementById('apellido').value = '';
+    const correo = document.getElementById('rut').value;
+    document.getElementById('rut').value = '';
     const telefono = document.getElementById('telefono').value;
     document.getElementById('telefono').value = '';
     const correo = document.getElementById('correo').value;
@@ -198,6 +200,7 @@ function guardar(){
     db.collection("publicacion").add({  
       name: nombre,
       lastName: apellido,
+      rut: rut,
       phone: telefono,
       email: correo,
       img: url,
