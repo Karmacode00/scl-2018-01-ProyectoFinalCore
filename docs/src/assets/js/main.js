@@ -8,6 +8,8 @@ function showPage() {
   document.getElementById("title").style.display="none";
   document.getElementById("loader").style.display="none";
   document.getElementById("myDiv").style.display="block";
+  document.getElementById("formulario").style.display="block";
+  document.getElementById("empresas").style.display="block";
   // {window.location="prueba.html"}
 }
 // fin de la función
@@ -172,6 +174,46 @@ function hideUI() {
   error_message.classList.remove("visible");
 }
 
+function guardar(){
+  const custom = customFile.files[0];
+  const fileName = custom.name;
+  const metadata = {
+    contentType: custom.type
+  };
+  const task = firebase.storage().ref('images') 
+    .child(fileName)
+    .put(custom, metadata);
+  task.then(snapshot => snapshot.ref.getDownloadURL())  //obtenemos la url de descarga (de la imagen)
+  .then(url => {
+    console.log("URL del archivo > "+url);
+    const nombre = document.getElementById('nombre').value;
+    document.getElementById('nombre').value = '';
+    const apellido = document.getElementById('apellido').value;
+    document.getElementById('apellido').value = '';
+    const correo = document.getElementById('rut').value;
+    document.getElementById('rut').value = '';
+    const telefono = document.getElementById('telefono').value;
+    document.getElementById('telefono').value = '';
+    const correo = document.getElementById('correo').value;
+    document.getElementById('correo').value = '';
+
+    db.collection("publicacion").add({  
+      name: nombre,
+      lastName: apellido,
+      rut: rut,
+      phone: telefono,
+      email: correo,
+      img: url,
+
+    })
+    .then(function(docRef) {
+      console.log("Document written with ID: ", docRef.id);
+    })
+    .catch(function(error) {
+      console.error("Error adding document: ", error);
+    });
+  });
+};
 
 
 
