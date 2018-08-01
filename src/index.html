@@ -43,21 +43,31 @@
             </a>
           </div>
           <canvas></canvas>
+          
         </div>
       </div>
     </div>
+    <div id="formulario" style="display: none;">
     <form>
-      <div class="form-group" id="enviar" style="display: none;">
-        <label for="exampleFormControlFile1">Example file input</label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1">
-        <div class="col-auto my-1">
-          <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="form-group">
+        <label for="formGroupExampleInput">Nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Apellidos</label>
+        <input type="text" class="form-control" id="apellido" placeholder="Ingresa tus apellidos">
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Telefono</label>
+          <input type="number" class="form-control" id="telefono" placeholder="Ingresa tu telefono">
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">E-mail</label>
+          <input type="text" class="form-control" id="correo" placeholder="Ingresa tu e-mail">
         </div>
       </div>
     </form>
-  </section>
-  <section>
-    
+    <button id="ingresar">Ingresar</button>
+  </div>
   </section>
   <!-- script bootstrap-->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
