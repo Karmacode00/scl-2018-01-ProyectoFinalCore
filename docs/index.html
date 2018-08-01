@@ -5,57 +5,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>APP</title>
+  <title>IF-Blanco Recoleta</title>
   <link rel="shortcut icon" type="image/x-icon" href="./src/assets/img/logoif.png">
-
-  <!-- link icono -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-    crossorigin="anonymous">
-
   <!-- link bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
   <!-- mis estilos -->
   <link rel="stylesheet" href="./src/assets/css/style.css">
+  <link rel="stylesheet" href="./src/assets/css/foto.css">
 </head>
 
 <body onload="myFunction()" style="margin: 0;">
-  <!-- section splash -->
   <section>
-
-    <h1 id="title">IF-Blanco Recoleta</h1>
     <div class="container-fluid">
-      <div id="loader"></div>
+      <h1 id="title">IF-Blanco Recoleta</h1>
+      <div class="card-text" id="loader"></div>
     </div>
   </section>
-  <!-- fin splash -->
-  <!-- contenido -->
   <section>
-    <div style="display: none;" id="myDiv" class="animate-botton">
-      <h2>Bienvenido</h2>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure, explicabo tempora! Eos accusamus soluta ipsam dolores
-        deserunt facere reiciendis cum assumenda, ut eius, earum numquam, tempora saepe ab eligendi laudantium?</p>
+    <div class="container-fluid" style="display: none;" id="myDiv" class="animate-botton">
+      <h1>IF-Blanco Recoleta</h1>
+      <div class="container">
+        <div class="app">
+          <a href="#" id="start-camera" class="visible">Iniciar Demo</a>
+          <video id="camera-stream"></video>
+          <img id="snap">
+          <p id="error-message"></p>
+          <div class="controls">
+            <a href="#" id="delete-photo" title="Eliminar Foto" class="disabled">
+              <i class="material-icons">delete</i>
+            </a>
+            <a href="#" id="take-photo" title="Tomar Foto">
+              <i class="material-icons">camera_alt</i>
+            </a>
+            <a href="#" id="download-photo" download="foto.jpg" title="Descargar Foto" class="disabled">
+              <i class="material-icons">file_download</i>
+            </a>
+          </div>
+          <canvas></canvas>
+        </div>
+      </div>
     </div>
   </section>
-
-
-
-
-  <!-- script firebase -->
-  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyAFI01zsbOiVi-1CETqqUvUuvM9UXTXvaM",
-      authDomain: "appregister-d9acc.firebaseapp.com",
-      databaseURL: "https://appregister-d9acc.firebaseio.com",
-      projectId: "appregister-d9acc",
-      storageBucket: "",
-      messagingSenderId: "141311202357"
-    };
-    firebase.initializeApp(config);
-  </script>
-  <!-- script bootstrap -->
+  <!-- script bootstrap-->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
