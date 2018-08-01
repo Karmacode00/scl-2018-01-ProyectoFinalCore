@@ -9,6 +9,7 @@ function showPage() {
   document.getElementById("loader").style.display="none";
   document.getElementById("myDiv").style.display="block";
   document.getElementById("formulario").style.display="block";
+  document.getElementById("empresas").style.display="block";
   // {window.location="prueba.html"}
 }
 // fin de la función
