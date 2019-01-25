@@ -1,9 +1,7 @@
-// Función para colocar  el cargador en la pagina y pueda mostrar el contenido de la pagina cuando se completa la carga
-let myVar;
-
-function myFunction() {
-  myVar = setTimeout(showPage, 3000);
+window.onload = function() {
+  setTimeout(showPage, 3000)
 }
+
 function showPage() {
   document.getElementById("title").style.display="none";
   document.getElementById("loader").style.display="none";
@@ -17,14 +15,14 @@ function showPage() {
 
 //  ++++++++++++++++++++++ 
 // Obtenemos todos los elementos que necesitaremos
-var video = document.querySelector('#camera-stream'),
+let video = document.querySelector('#camera-stream'),
   image = document.querySelector('#snap'),
-  start_camera = document.querySelector('#start-camera'),
+  startCamera = document.querySelector('#start-camera'),
   controls = document.querySelector('.controls'),
-  take_photo_btn = document.querySelector('#take-photo'),
-  delete_photo_btn = document.querySelector('#delete-photo'),
-  download_photo_btn = document.querySelector('#download-photo'),
-  error_message = document.querySelector('#error-message');
+  takePhotoBtn = document.querySelector('#take-photo'),
+  deletePhotoBtn = document.querySelector('#delete-photo'),
+  downloadPhotoBtn = document.querySelector('#download-photo'),
+  errorMessage = document.querySelector('#error-message');
 
 
 // Utilizamos la funcion getUserMedia para obtener la salida de la webcam
@@ -65,8 +63,9 @@ else {
 
 
 
+
 // En los moviles no se puede reproducir el video automaticamente, programamos funcionamiento del boton inicar camara
-start_camera.addEventListener("click", function (e) {
+startCamera.addEventListener("click", function (e) {
 
   e.preventDefault();
 
@@ -77,22 +76,22 @@ start_camera.addEventListener("click", function (e) {
 });
 
 
-take_photo_btn.addEventListener("click", function (e) {
+takePhotoBtn.addEventListener("click", function (e) {
 
   e.preventDefault();
 
-  var snap = takeSnapshot();
+  let snap = takeSnapshot();
 
   // Mostramos la imagen
   image.setAttribute('src', snap);
   image.classList.add("visible");
 
   // Activamos los botones de eliminar foto y descargar foto
-  delete_photo_btn.classList.remove("disabled");
-  download_photo_btn.classList.remove("disabled");
+  deletePhotoBtn.classList.remove("disabled");
+  downloadPhotoBtn.classList.remove("disabled");
 
   // Establecemos el atributo href para el boton de descargar imagen
-  download_photo_btn.href = snap;
+  downloadPhotoBtn.href = snap;
 
   // Pausamos el stream de video de la webcam
   video.pause();
@@ -100,7 +99,7 @@ take_photo_btn.addEventListener("click", function (e) {
 });
 
 
-delete_photo_btn.addEventListener("click", function (e) {
+deletePhotoBtn.addEventListener("click", function (e) {
 
   e.preventDefault();
 
@@ -109,8 +108,8 @@ delete_photo_btn.addEventListener("click", function (e) {
   image.classList.remove("visible");
 
   // Deshabilitamos botones de descargar y eliminar foto
-  delete_photo_btn.classList.add("disabled");
-  download_photo_btn.classList.add("disabled");
+  deletePhotoBtn.classList.add("disabled");
+  downloadPhotoBtn.classList.add("disabled");
 
   // Reanudamos la reproduccion de la webcam
   video.play();
@@ -130,37 +129,37 @@ function showVideo() {
 
 function takeSnapshot() {
 
-  var hidden_canvas = document.querySelector('canvas'),
-    context = hidden_canvas.getContext('2d');
+  let hiddenCanvas = document.querySelector('canvas'),
+    context = hiddenCanvas.getContext('2d');
 
-  var width = video.videoWidth,
+  let width = video.videoWidth,
     height = video.videoHeight;
 
   if (width && height) {
 
     // Configuramos el canvas con las mismas dimensiones que el video
-    hidden_canvas.width = width;
-    hidden_canvas.height = height;
+    hiddenCanvas.width = width;
+    hiddenCanvas.height = height;
 
     // Hacemos una copia
     context.drawImage(video, 0, 0, width, height);
 
     // Convertimos la imagen del canvas en datarurl
-    return hidden_canvas.toDataURL('image/png');
+    return hiddenCanvas.toDataURL('image/png');
   }
 }
 
 
-function displayErrorMessage(error_msg, error) {
+function displayErrorMessage(errorMsg, error) {
   error = error || "";
   if (error) {
     console.log(error);
   }
 
-  error_message.innerText = error_msg;
+  errorMessage.innerText = errorMsg;
 
   hideUI();
-  error_message.classList.add("visible");
+  errorMessage.classList.add("visible");
 }
 
 
@@ -168,13 +167,13 @@ function hideUI() {
   // Limpiamos
 
   controls.classList.remove("visible");
-  start_camera.classList.remove("visible");
+  startCamera.classList.remove("visible");
   video.classList.remove("visible");
   snap.classList.remove("visible");
-  error_message.classList.remove("visible");
+  errorMessage.classList.remove("visible");
 }
 
-function guardar(){
+function save() {
   const custom = customFile.files[0];
   const fileName = custom.name;
   const metadata = {
@@ -190,7 +189,7 @@ function guardar(){
     document.getElementById('nombre').value = '';
     const apellido = document.getElementById('apellido').value;
     document.getElementById('apellido').value = '';
-    const correo = document.getElementById('rut').value;
+    const rut = document.getElementById('rut').value;
     document.getElementById('rut').value = '';
     const telefono = document.getElementById('telefono').value;
     document.getElementById('telefono').value = '';
